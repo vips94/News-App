@@ -1,0 +1,54 @@
+@import './../styles/variables.scss';
+
+.newsCard{
+    width: 100%;
+    height: 60%;
+    background: white;
+    border-radius: $borderRadius;
+    transition: $hoverTime ease all;
+    overflow: hidden;
+    box-shadow: $boxShadow;
+   
+
+    &:hover{
+       box-shadow: $boxShadow;
+    }
+
+    &:hover &__img img{
+        transform: scale(1.3,1.3);
+    }
+
+    &:hover  &__title{
+        transform:translateY(-60%);
+    }
+
+    &:hover &__title__content{
+        padding-top: 1rem;
+    }
+
+    &__img{
+        width: 100%;
+        height: 70%;
+
+        img{
+            width: 100%;
+            height: 100%;
+            transition: $hoverTime ease all;
+        }
+    }
+
+    &__title{
+        padding: 1rem;
+        background: whitesmoke;
+        transition: $hoverTime ease all;
+
+        &__date{
+            padding-top: 1rem;
+        }
+
+        &__content{
+            padding-top: 2rem;
+            transition: $hoverTime ease all;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+$Poppins : 'Poppins', sans-serif;
+
+
+//colors
+$dark : rgb(29,29,29);
+$light : #ffff;
+$primary : rgb(245, 222, 179);
+$bg : rgb(173, 216, 230);
+$highlight : red;
+$borderColor : rgba(134, 119, 92, 0.781);
+
+//border radius
+$borderRadius : 12px;
+$boxShadow : 4px 4px 6px 1px rgba(0, 0, 0, 0.2);
+
+//card hover time
+$hoverTime : 0.3s;
+
+@mixin breakpoint($point) {
+    @if $point == md{
+        @media (max-width : 786px) {
+            @content
+        }
+    }
+    
+}
