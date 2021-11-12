@@ -1,73 +1,69 @@
-@import './../styles/variables.scss';
+@import "./../styles/variables.scss";
 
-.header{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 500;
-    width: 100%;
-    min-height: 10vh;
-    background: $dark;
-    padding: 0 2rem 0 2rem;
+.header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  min-height: 10vh;
+  background: $dark;
+  padding: 0 2rem 0 2rem;
 
-    &__logo{
-        h1{
+  &__logo {
+    h1 {
+      color: white;
+    }
+  }
+
+  &__nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      li {
+        list-style: none;
+        a{
             color: white;
-        }
-    }
-
-    &__nav{
-        ul{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap:2rem;
-            li{
-                list-style: none;
-                a{
-                    color: white;
-                    text-decoration: none;
-                    font-size: 15px;
-                    transition: 0.5s ease all;
-
-                    &:hover{
-                        color: red;
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
-    }
-
-    &__search{
-        justify-self: flex-end;
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 5px;
-
-        input{
-            padding-left: 8px;
-            height: 20px;
+            text-decoration: none;
             font-size: 15px;
-            
-        }
-
-        svg{
-            color: white;
-            width: 20px;
-            height: 20px;
             transition: 0.5s ease all;
 
-            &:hover{
-                transform: scale(1.2,1.2);
-            }
+            &:hover {
+            color: red;
+            font-size: 20px;
+            } 
+          }
         }
     }
-    
+  }
+
+  &__search {
+    justify-self: flex-end;
+    width: 60%;
+
+    p {
+      color: white;
+      font-size: 13px;
+    }
+  }
 }
+
+
+:global .active{
+    color: red !important;
+    font-size: 20px !important;
+}
+
+    
+    
+    
+
+
+
+

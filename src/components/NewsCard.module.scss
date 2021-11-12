@@ -2,8 +2,9 @@
 
 .newsCard{
     width: 100%;
+    max-height: 60%;
     height: 60%;
-    background: white;
+    background: whitesmoke;
     border-radius: $borderRadius;
     transition: $hoverTime ease all;
     overflow: hidden;
@@ -38,17 +39,37 @@
     }
 
     &__title{
-        padding: 1rem;
+        padding: 0 1rem 1rem 1rem;
         background: whitesmoke;
         transition: $hoverTime ease all;
 
         &__date{
-            padding-top: 1rem;
+            //padding-top: 5px;
+            min-height: 125px;
+            max-height: 125px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+
+            h4{
+                line-height: auto;
+                //white-space: pre-line;
+                overflow: scroll;
+            }
+            
         }
 
         &__content{
             padding-top: 2rem;
             transition: $hoverTime ease all;
+            //overflow: hidden;
+            
+            p{
+                height: 170px;
+                overflow-x: auto;
+                overflow-y: auto;
+            }
         }
     }
 }

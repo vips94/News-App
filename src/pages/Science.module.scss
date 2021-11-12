@@ -1,6 +1,6 @@
 @import './../styles/variables.scss';
 
-.trendingNews{
+.science{
     width: 100%;
     min-height: 90vh;
     display: grid;
@@ -13,23 +13,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgb(194, 236, 139);
+        flex-direction: column;
+        background: rgb(221, 139, 236);
         box-shadow: $boxShadow;
         z-index: 100;
-        
 
         h1{
             line-height: 30px;
-            color:#333;
-            text-shadow: 2px 2px orange;
+            color: white;
+            text-shadow: 2px 2px green;
         }
     }
 
     &__content{
+        //margin-left: 1rem;
         width: 100%;
         height: 100%;
-        background: linear-gradient(79deg, rgb(227, 255, 189) 0%, rgba(240,240,240,1) 50%);
-
+        //background: rgb(255,143,86);
+        background: linear-gradient(79deg, rgb(221, 139, 236) 0%, rgba(240,240,240,1) 50%);
         ul{
             width: 100%;
             height: 100%;
@@ -39,15 +40,15 @@
             align-items: center;
             justify-content: flex-start;
             list-style: none;
+            flex-grow: 1;
             //gap: 20px;
             overflow: auto;
-            //flex-wrap: nowrap;
 
     
             li{
                 padding: 0 1rem 0 1rem;
-                min-width: 25%;
-                width: 25%;
+                min-width: 300px;
+                width: 300px;
                 height: 100%;
                 display: flex;
                 justify-content: center;

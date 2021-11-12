@@ -1,34 +1,30 @@
 import Header from './components/Header';
 import Layout from './components/Layout';
 import Bussiness from './pages/Bussiness';
-import LatestNews from './pages/LatestNews';
+import Sports from './pages/Sports';
 import Tech from './pages/Tech';
-import Trending from './pages/Trending';
+import Health from './pages/Health';
+import Science from './pages/Science';
+import TopHeadlines from './pages/TopHeadlines';
 import {Route, BrowserRouter as Router , Routes} from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
-//   fetch("https://google-news.p.rapidapi.com/v1/top_headlines?lang=en&country=US", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "google-news.p.rapidapi.com",
-// 		"x-rapidapi-key": "9a13b3b15dmshe9d2ce71484db58p11b8e4jsn314383fbf5c9"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
+  const [country,setCountry] = useState('in')
+  const handleCountry = (country)=>{
+     setCountry(country);
+  }
   return (
     <Router>
       <Layout>
-        <Header/>
+        <Header selectedCountry={handleCountry}/>
         <Routes>
-          <Route path='/' element={<LatestNews/>}/>
-          <Route path='/tech' element={<Tech/>}/>
-          <Route path='/bussiness' element={<Bussiness/>}/>
-          <Route path='/trending' element={<Trending/>}/>
+          <Route path='/' element={<TopHeadlines country={country}/>}/> 
+          <Route path='/sports' element={<Sports country={country}/>}/>
+          <Route path='/tech' element={<Tech country={country}/>}/>
+          <Route path='/bussiness' element={<Bussiness country={country}/>}/>
+          <Route path='/health' element={<Health country={country}/>}/>
+          <Route path='/science' element={<Science country={country}/>}/>
         </Routes>
       </Layout>
   </Router>

@@ -1,24 +1,29 @@
 import React from 'react';
 import classes from './NewsCard.module.scss';
 
-const NewsCard = ()=>{
+const NewsCard = (props)=>{
+
+    // const event = new Date(props.item.publishedAt);
+
+    // const options = { month: 'long', day: 'numeric' };
+
+    // const date = event.toLocaleDateString(undefined, options);
+
     return(
         <div className={classes.newsCard}>
             <div className={classes.newsCard__img}>
-                <img src={process.env.PUBLIC_URL+"/images/demo.png"} alt=""/>
+                <img src={props.item.urlToImage} alt=""/>
             </div>
             <div className={classes.newsCard__title}>
-                <p className={classes.newsCard__title__date}>data and time</p>
-                <h2>Title of the news</h2>
-                <p className={classes.newsCard__title__content}>the main body of a book or other piece of writing, as distinct from other material such as notes, appendices, and illustrations.a book or other written or printed work, regarded in terms of its content rather than its physical form.</p>
+                <div className={classes.newsCard__title__date}>
+                    {/* <p>{date}</p> */}
+                    <h4>{props.item.title}</h4>
+                </div>
+                <div className={classes.newsCard__title__content}>
+                    <p>{props.item.description}</p>
+                </div>
 
             </div>
-            {/* <div className={classes.newsCard__content}>
-            <p>the main body of a book or other piece of writing, as distinct from other material such as notes, appendices, and illustrations.a book or other written or printed work, regarded in terms of its content rather than its physical form.</p>
-
-            </div> */}
-            
-            
         </div>
     );
 }

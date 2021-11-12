@@ -1,10 +1,10 @@
 @import './../styles/variables.scss';
 
-.latestNews{
+.health{
     width: 100%;
     min-height: 90vh;
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 17% 83%;
     grid-template-rows: 1fr;
     background: white;
     
@@ -13,23 +13,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgb(236, 150, 139);
+        flex-direction: column;
+        background: rgb(194, 236, 139);
         box-shadow: $boxShadow;
         z-index: 100;
+        
 
         h1{
             line-height: 30px;
-            color: white;
-            text-shadow: 2px 2px green;
+            color:#333;
+            text-shadow: 2px 2px orange;
         }
     }
 
     &__content{
-        //margin-left: 1rem;
         width: 100%;
         height: 100%;
-        //background: rgb(255,143,86);
-        background: linear-gradient(79deg, rgb(250, 183, 175) 0%, rgba(240,240,240,1) 50%);
+        background: linear-gradient(79deg, rgb(227, 255, 189) 0%, rgba(240,240,240,1) 50%);
+
         ul{
             width: 100%;
             height: 100%;
@@ -39,15 +40,13 @@
             align-items: center;
             justify-content: flex-start;
             list-style: none;
-            //gap: 20px;
             overflow: auto;
-            //flex-wrap: nowrap;
 
     
             li{
                 padding: 0 1rem 0 1rem;
-                min-width: 25%;
-                width: 25%;
+                min-width: 300px;
+                width: 300px;
                 height: 100%;
                 display: flex;
                 justify-content: center;
