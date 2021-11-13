@@ -15,7 +15,7 @@ function App() {
      setCountry(country);
   }
   return (
-    <Router>
+    <Router basename="/News-App">
       <Layout>
         <Header selectedCountry={handleCountry}/>
         <Routes>
