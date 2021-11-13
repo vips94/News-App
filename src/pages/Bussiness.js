@@ -266,6 +266,7 @@ import classes from './Bussiness.module.scss';
 
 const Bussiness = (props)=>{
     const[articles,setArticles] = useState();
+    const[date,setDate] = useState("");
 
     useEffect(()=>{
         fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&category=business&apiKey=0235418f21104fc480a17de240746f70`)
@@ -274,21 +275,31 @@ const Bussiness = (props)=>{
         })
         .then((myJson) =>{
           setArticles(myJson.articles);
+            if(articles){
+                const event = new Date(articles[0].publishedAt);
+                const options = { month: 'long', day: 'numeric',weekday:'long'};
+                const today = event.toLocaleDateString(undefined, options);
+                setDate(today);
+            }
         })
     }
-    // setArticles(data)}
-    ,[articles,props.country]
+    // setArticles(data);
+    // if(articles){
+    //     const event = new Date(articles[0].publishedAt);
+    //     const options = { month: 'long', day: 'numeric',weekday:'long'};
+    //     const today = event.toLocaleDateString(undefined, options);
+    //     setDate(today);
+    // }
+    // }  
+    ,[articles,props.country,date]
     );
     
-    // const event = new Date(articles[0].publishedAt);
-    // const options = { month: 'long', day: 'numeric',weekday:'long'};
-    // const date = event.toLocaleDateString(undefined, options);
 
     return(
         <div className={classes.bussinessNews}>
             <div className={classes.bussinessNews__logo}>
-                <h1>BUSSINESS<br/>NEWS</h1>
-                <p>{}</p>
+                <h1>BUSSINESS <br/>NEWS</h1>
+                <p>{date}</p>
             </div>
             <div className={classes.bussinessNews__content}>
                 <ul>

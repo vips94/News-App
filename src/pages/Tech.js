@@ -268,6 +268,7 @@ import classes from './Tech.module.scss';
 const Tech = (props)=>{
 
     const[articles,setArticles] = useState();
+    const[date,setDate] = useState("");
 
     useEffect(()=>{
         fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&category=technology&apiKey=0235418f21104fc480a17de240746f70`)
@@ -276,17 +277,23 @@ const Tech = (props)=>{
         })
         .then((myJson) =>{
           setArticles(myJson.articles);
+          if(articles){
+            const event = new Date(articles[0].publishedAt);
+            const options = { month: 'long', day: 'numeric',weekday:'long'};
+            const today = event.toLocaleDateString(undefined, options);
+            setDate(today);
+        }
         })
     }
     // setArticles(data)}
-    ,[articles,props.country]
+    ,[articles,props.country,date]
     );
 
     return(
         <div className={classes.techNews}>
             <div className={classes.techNews__logo}>
-                <h1>TECHNNOLOGY<br/>NEWS</h1>
-                <p>{}</p>
+                <h1>TECHNNOLOGY <br/>NEWS</h1>
+                <p>{date}</p>
             </div>
             <div className={classes.techNews__content}>
                 <ul>

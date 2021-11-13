@@ -13,19 +13,51 @@
   background: $dark;
   padding: 0 2rem 0 2rem;
 
+  @include breakpoint(md){
+    grid-template-columns: 1fr 1.3fr 0.5fr;
+    padding: 0 5px 0 5px;
+  }
+
   &__logo {
     h1 {
       color: white;
+
+      @include breakpoint(md){
+          font-size: 25px;
+          line-height: 25px;
+      }
     }
   }
 
   &__nav {
+
+     @include breakpoint(md){
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 70%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 15fr 1fr;
+        align-items: center;
+        text-align: center;
+        background: rgba($dark , 0.9);
+        backdrop-filter: blur(2px);
+        transform: translate(0);
+        transition: 0.3s ease transform;
+     }
+      
     ul {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
       gap: 2rem;
+
+      @include breakpoint(md){
+          flex-direction: column;
+      }
       li {
         list-style: none;
         a{
@@ -34,6 +66,10 @@
             font-size: 15px;
             transition: 0.5s ease all;
 
+            @include breakpoint(md){
+                font-size: 25px;
+            }
+
             &:hover {
             color: red;
             font-size: 20px;
@@ -41,23 +77,69 @@
           }
         }
     }
+
+    &.isMenu{
+        // transform: translate(0%);
+
+
+        @include breakpoint(md){
+            transform: translate(100%);
+        }
+    }
+
   }
 
   &__search {
     justify-self: flex-end;
     width: 60%;
 
+    @include breakpoint(md){
+        z-index: 100;
+        width: 100%;
+    }
+
     p {
       color: white;
       font-size: 13px;
+
+      @include breakpoint(md){
+          display: none;
+      }
     }
   }
+
+  &__toggle{
+    display: none;
+
+    @include breakpoint(md){
+        
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        transition: 0.3s ease all;
+        position: relative;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    svg{
+        // background:whitesmoke;
+        color: whitesmoke;
+    }
 }
+}
+
+
 
 
 :global .active{
     color: red !important;
     font-size: 20px !important;
+
+    @include breakpoint(md){
+        font-size: 30px !important;
+    }
 }
 
     

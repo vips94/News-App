@@ -267,6 +267,7 @@ import classes from './Science.module.scss';
 
 const Science = (props)=>{
     const[articles,setArticles] = useState();
+    const[date,setDate] = useState("");
 
     useEffect(()=>{
         fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&category=science&apiKey=0235418f21104fc480a17de240746f70`)
@@ -275,23 +276,23 @@ const Science = (props)=>{
         })
         .then((myJson) =>{
           setArticles(myJson.articles);
+          if(articles){
+            const event = new Date(articles[0].publishedAt);
+            const options = { month: 'long', day: 'numeric',weekday:'long'};
+            const today = event.toLocaleDateString(undefined, options);
+            setDate(today);
+        }
         })
     }
     // setArticles(data)}
-    ,[articles,props.country]
+    ,[articles,props.country,date]
     );
-
-    // const event = new Date(articles[0].publishedAt);
-
-    // const options = { month: 'long', day: 'numeric',weekday:'long' };
-
-    // const date = event.toLocaleDateString(undefined, options);
 
     return(
         <div className={classes.science}>
             <div className={classes.science__logo}>
-                <h1>SCIENCE<br/>NEWS</h1>
-                <p>{}</p>
+                <h1>SCIENCE <br/>NEWS</h1>
+                <p>{date}</p>
             </div>
             <div className={classes.science__content}>
                 <ul>
