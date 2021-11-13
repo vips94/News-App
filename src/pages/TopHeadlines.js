@@ -1,6 +1,6 @@
-import React,{useEffect, useState} from 'react';
-import NewsCard from '../components/NewsCard';
-import classes from './TopHeadlines.module.scss';
+import React, { useEffect, useState } from "react";
+import NewsCard from "../components/NewsCard";
+import classes from "./TopHeadlines.module.scss";
 
 // const data = [
 //     {
@@ -265,48 +265,51 @@ import classes from './TopHeadlines.module.scss';
 //     }
 // ]
 
-const TopHeadlines = (props)=>{
-    const[articles,setArticles] = useState();
-    const[date,setDate] = useState("");
+const TopHeadlines = (props) => {
+  const [articles, setArticles] = useState();
+  const [date, setDate] = useState("");
 
-    useEffect(()=>{
-        fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&apiKey=0235418f21104fc480a17de240746f70`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((myJson) =>{
-          setArticles(myJson.articles);
-          if(articles){
-            const event = new Date(articles[0].publishedAt);
-            const options = { month: 'long', day: 'numeric',weekday:'long'};
-            const today = event.toLocaleDateString(undefined, options);
-            setDate(today);
+  useEffect(() => {
+    fetch(
+      `https://newsapi.org/v2/top-headlines?country=${props.country}&apiKey=0235418f21104fc480a17de240746f70`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        setArticles(myJson.articles);
+        if (articles) {
+          const event = new Date(articles[0].publishedAt);
+          const options = { month: "long", day: "numeric", weekday: "long" };
+          const today = event.toLocaleDateString(undefined, options);
+          setDate(today);
         }
-        })
-    },
-    [articles,props.country,date]
-    );
+      });
+  }, [articles, props.country, date]);
 
-    return(
-        <div className={classes.topHeadlines}>
-           <div className={classes.topHeadlines__logo}>
-                <h1>TOP <br/>NEWS</h1>
-                <p>{date}</p>
-            </div>
-            <div className={classes.topHeadlines__content}>
-                <ul>
-                    {
-                    articles && articles.map((item,index)=>{
-                        return(
-                            <li key={index}><NewsCard item={item}/></li>
-                        );
-                    })
-                    }
-                </ul>
-            </div>
-            
-        </div>
-    );
-}
+  return (
+    <div className={classes.topHeadlines}>
+      <div className={classes.topHeadlines__logo}>
+        <h1>
+          TOP <br />
+          NEWS
+        </h1>
+        <p>{date}</p>
+      </div>
+      <div className={classes.topHeadlines__content}>
+        <ul>
+          {articles &&
+            articles.map((item, index) => {
+              return (
+                <li key={index}>
+                  <NewsCard item={item} />
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 export default TopHeadlines;
