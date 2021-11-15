@@ -270,7 +270,8 @@ const Sports = (props)=>{
     const[date,setDate] = useState("");
 
     useEffect(()=>{
-        fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&category=sports&apiKey=0235418f21104fc480a17de240746f70`)
+        //fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&category=sports&apiKey=0235418f21104fc480a17de240746f70`)
+        fetch(`https://saurav.tech/NewsAPI/top-headlines/category/sports/${props.country}.json`)
         .then((response) => {
           return response.json();
         })
@@ -287,6 +288,17 @@ const Sports = (props)=>{
     // setArticles(data)}
     ,[articles,props.country,date]
     );
+
+    const [didMount, setDidMount] = useState(false); 
+
+    useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
+    }, [])
+
+    if(!didMount) {
+    return null;
+    }
 
     return(
         <div className={classes.sports}>

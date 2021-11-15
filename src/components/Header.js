@@ -6,13 +6,17 @@ import countryList from 'react-select-country-list';
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 
+// const countryCodes = [
+//     'ae','ar','at','au','be','bg','br','ca','ch','cn','co',
+//     'cu','cz','de','eg','fr','gb','gr','hk','hu','id','ie',
+//     'il','in','it','jp','kr','lt','lv','ma','mx','my','ng',
+//     'nl','no','nz','ph','pl','pt','ro','rs','ru','sa','se',
+//     'sg','si','sk','th','tr','tw','ua','us','ve','za'
+// ]  
+
 const countryCodes = [
-    'ae','ar','at','au','be','bg','br','ca','ch','cn','co',
-    'cu','cz','de','eg','fr','gb','gr','hk','hu','id','ie',
-    'il','in','it','jp','kr','lt','lv','ma','mx','my','ng',
-    'nl','no','nz','ph','pl','pt','ro','rs','ru','sa','se',
-    'sg','si','sk','th','tr','tw','ua','us','ve','za'
-]    
+    'au','fr','gb','in','ru','us'
+]  
 
 const Header = (props)=>{
 
@@ -68,7 +72,7 @@ const Header = (props)=>{
             <nav className={`${classes.header__nav} ${menuOpen ? classes.isMenu : " "}`} onClick = {(event) => event.stopPropagation()}>
                 <ul>
                     <li>
-                        <NavLink exact="true" to="/">Top Headlines</NavLink>
+                        <NavLink exact="true" to="/">General</NavLink>
                     </li>
                     <li>
                         <NavLink exact="true" to="/tech">Tech</NavLink>

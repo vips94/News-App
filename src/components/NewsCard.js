@@ -22,7 +22,6 @@ const NewsCard = (props)=>{
                 <div className={classes.newsCard__title__content}>
                     <p>{props.item.description}</p>
                 </div>
-                
             </div>
             
         </div>

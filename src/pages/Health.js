@@ -270,13 +270,14 @@ const Health = (props)=>{
     const[date,setDate] = useState("");
 
     useEffect(()=>{
-        fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&category=health&apiKey=0235418f21104fc480a17de240746f70`)
+        //fetch(`https://newsapi.org/v2/top-headlines?country=${props.country}&category=health&apiKey=0235418f21104fc480a17de240746f70`)
+        fetch(`https://saurav.tech/NewsAPI/top-headlines/category/health/${props.country}.json`)
         .then((response) => {
           return response.json();
         })
         .then((myJson) =>{
-          setArticles(myJson.articles);
-          if(articles){
+            setArticles(myJson.articles);
+            if(articles){
             const event = new Date(articles[0].publishedAt);
             const options = { month: 'long', day: 'numeric',weekday:'long'};
             const today = event.toLocaleDateString(undefined, options);
@@ -288,11 +289,17 @@ const Health = (props)=>{
     ,[articles,props.country,date]
     );
 
-    // const event = new Date(articles[0].publishedAt);
+    const [didMount, setDidMount] = useState(false); 
 
-    // const options = { month: 'long', day: 'numeric',weekday:'long' };
+    useEffect(() => {
+    setDidMount(true);
+    return () => setDidMount(false);
+    }, [])
 
-    // const date = event.toLocaleDateString(undefined, options);
+    if(!didMount) {
+    return null;
+    }
+
     return(
         <div className={classes.health}>
             <div className={classes.health__logo}>
