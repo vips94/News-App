@@ -16,14 +16,15 @@ const NewsCard = (props)=>{
             </div>
             <div className={classes.newsCard__title}>
                 <div className={classes.newsCard__title__date}>
-                    {/* <p>{date}</p> */}
                     <h4>{props.item.title}</h4>
+                    <a href={props.item.url} target="_blank" rel="noreferrer" >Read More</a>
                 </div>
                 <div className={classes.newsCard__title__content}>
                     <p>{props.item.description}</p>
                 </div>
-
+                
             </div>
+            
         </div>
     );
 }
